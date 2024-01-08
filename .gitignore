@@ -1,0 +1,5 @@
+# ignore everything in folder starting with wso2is-6.1.0
+wso2is-6.1.0*
+kubernetes*
+```
+

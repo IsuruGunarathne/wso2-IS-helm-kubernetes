@@ -1,22 +1,32 @@
-1. Get the application URL by running these commands:
-{{- if .Values.ingress.enabled }}
-{{- range $host := .Values.ingress.hosts }}
-  {{- range .paths }}
-  http{{ if $.Values.ingress.tls }}s{{ end }}://{{ $host.host }}{{ .path }}
-  {{- end }}
-{{- end }}
-{{- else if contains "NodePort" .Values.service.type }}
-  export NODE_PORT=$(kubectl get --namespace {{ .Release.Namespace }} -o jsonpath="{.spec.ports[0].nodePort}" services {{ include "wso2-IS-helm-kubernetes.fullname" . }})
-  export NODE_IP=$(kubectl get nodes --namespace {{ .Release.Namespace }} -o jsonpath="{.items[0].status.addresses[0].address}")
-  echo http://$NODE_IP:$NODE_PORT
-{{- else if contains "LoadBalancer" .Values.service.type }}
-     NOTE: It may take a few minutes for the LoadBalancer IP to be available.
-           You can watch the status of by running 'kubectl get --namespace {{ .Release.Namespace }} svc -w {{ include "wso2-IS-helm-kubernetes.fullname" . }}'
-  export SERVICE_IP=$(kubectl get svc --namespace {{ .Release.Namespace }} {{ include "wso2-IS-helm-kubernetes.fullname" . }} --template "{{"{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}"}}")
-  echo http://$SERVICE_IP:{{ .Values.service.port }}
-{{- else if contains "ClusterIP" .Values.service.type }}
-  export POD_NAME=$(kubectl get pods --namespace {{ .Release.Namespace }} -l "app.kubernetes.io/name={{ include "wso2-IS-helm-kubernetes.name" . }},app.kubernetes.io/instance={{ .Release.Name }}" -o jsonpath="{.items[0].metadata.name}")
-  export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-  echo "Visit http://127.0.0.1:8080 to use your application"
-  kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
-{{- end }}
+Thank you for installing WSO2 Identity Server.
+
+Please follow these steps to access the Management Console.
+
+1. Obtain the external IP (`EXTERNAL-IP`) of the Identity service Ingress resource, by listing down the Kubernetes Ingresses.
+
+  kubectl get ing -n {{ .Release.Namespace }}
+
+  The output under the relevant column stands for the following.
+
+  - NAME: Metadata name of the Kubernetes Ingress resource (defaults to {{ template "is-pattern-1.resource.prefix" . }}-identity-server-ingress)
+  - HOSTS: Hostname of the WSO2 Identity service ({{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }})
+  - ADDRESS: External IP (`EXTERNAL-IP`) exposing the Identity service to outside of the Kubernetes environment
+  - PORTS: Externally exposed service ports of the Identity service
+
+2. Add a DNS record mapping the Identity service hostname and the external IP.
+
+   If the defined hostname (i.e. {{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }}) is backed by a DNS service, add a DNS record mapping the hostname and
+   the external IP (`EXTERNAL-IP`) in the relevant DNS service.
+
+   If the defined hostname is not backed by a DNS service, for the purpose of evaluation you may add an entry mapping the
+   hostname and the external IP in the `/etc/hosts` file at the client-side.
+
+   <EXTERNAL-IP> {{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }}
+
+3. Navigate to Management Console, Console and My Account URLs in your browser of choice.
+
+  - Mgt Console: https://{{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }}/carbon
+  - Console: https://{{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }}/console
+  - My Account: https://{{ .Values.wso2.deployment.wso2is.ingress.identity.hostname }}/myaccount
+
+Please refer the official documentation at https://is.docs.wso2.com/en/latest for additional information on WSO2 Identity Server.

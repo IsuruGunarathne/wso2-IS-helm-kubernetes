@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: {{ .Values.depName }}
   labels:
-    app: is
+    app: {{ .Values.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: is
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: is
+        app: {{ .Values.appName }}
     spec:
       containers:
-        - name: is
+        - name: {{ .Values.appName }}
           image: is6.1
           imagePullPolicy: Never
           ports:

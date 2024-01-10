@@ -38,3 +38,7 @@ get the pod name using `kubectl get pods` then run
 
 to access the directory
 `minikube ssh` then `cd /` then navigate to the host path
+
+### accessing the mysql cli
+
+`kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword`

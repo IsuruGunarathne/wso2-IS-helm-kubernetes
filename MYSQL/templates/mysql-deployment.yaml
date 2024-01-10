@@ -16,6 +16,7 @@ spec:
       containers:
       - image: mysql:latest
         name: mysql
+        imagePullPolicy: IfNotPresent
         env:
           # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD

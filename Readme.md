@@ -21,4 +21,5 @@ https://github.com/prettier/prettier/issues/6517
 
 # access console within the docker container
 
-`kubectl exec -it is-deployment-69bdb4b569-n4vwf -- /usr/bin/bash`
+get the pod name using `kubectl get pods` then run
+`kubectl exec -it <pods name> -- /usr/bin/bash`

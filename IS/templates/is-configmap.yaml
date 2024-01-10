@@ -34,20 +34,18 @@ data:
 
     [database.identity_db]
     type = "mysql"
-    hostname = "localhost"
-    name = "regdb"
+    url = "jdbc:mysql://mysql:3306/WSO2IS_IDENTITY_DB"
     username = "regadmin"
     password = "regadmin"
-    port = "3306"
+    driver = "com.mysql.cj.jdbc.Driver"
 
     [database.shared_db]
     type = "mysql"
-    hostname = "localhost"
-    name = "regdb"
+    url = "jdbc:mysql://mysql:3306/WSO2IS_SHARED_DB"
     username = "regadmin"
     password = "regadmin"
-    port = "3306"
-    
+    driver = "com.mysql.cj.jdbc.Driver"
+
     [keystore.primary]
     file_name = "wso2carbon.jks"
     password = "wso2carbon"

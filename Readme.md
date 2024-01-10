@@ -41,4 +41,8 @@ to access the directory
 
 ### accessing the mysql cli
 
-`kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h mysql -ppassword`
+`kubectl run -it --rm --image=mysql:latest --restart=Never mysql-client -- mysql -h mysql -ppassword`
+
+### remove mysql chart
+
+`helm delete mysql-release`

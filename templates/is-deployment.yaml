@@ -21,3 +21,13 @@ spec:
           ports:
             - containerPort: 9443
 
+          volumeMounts: 
+            - name: identity-server-conf
+              mountPath: /home/wso2carbon/wso2is-6.1.0/repository/conf/deployment.toml
+              subPath: deployment.toml
+
+      volumes:
+        - name: identity-server-conf
+          configMap:
+            name: identity-server-conf
+

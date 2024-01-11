@@ -7,6 +7,12 @@ Note : start the IS only after the MySQL is up and running
 
 ## IS
 
+### JDBC driver
+
+download the jar file at https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.20
+and place it in <IS_HOME>/repository/components/lib directory
+then rebuild the docker image
+
 ### run the following command to install the chart
 
 `sudo systemctl start docker`
@@ -33,6 +39,10 @@ get the pod name using `kubectl get pods` then run
 ### run the following command to install the chart
 
 `helm install mysql-release . ` from within the MySQL directory
+
+### checking the mysql deployment
+
+`kubectl describe deployment mysql`
 
 ### checking persistent volume
 

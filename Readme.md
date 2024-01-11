@@ -55,6 +55,11 @@ to access the directory
 
 `kubectl run -it --rm --image=mysql:latest --restart=Never mysql-client -- mysql -h mysql -ppassword`
 
+or
+
+go into terminal in the container using `kubectl exec -it <pods name> -- /bin/bash` then run
+`mysql -h mysql -u regadmin -pregadmin` from inside the container
+
 ### remove mysql chart
 
 `helm delete mysql-release`

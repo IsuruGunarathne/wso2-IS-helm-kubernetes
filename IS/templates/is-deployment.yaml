@@ -23,7 +23,11 @@ spec:
             - containerPort: 4000
             - containerPort: 3306
             - containerPort: 433
-
+          env:
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
           volumeMounts: 
             - name: identity-server-conf
               mountPath: /home/wso2carbon/wso2is-6.1.0/repository/conf/deployment.toml

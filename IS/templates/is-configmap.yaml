@@ -22,7 +22,7 @@ data:
     # Deployment config for Identity Server deployment
     [server]
     hostname = "localhost"
-    node_ip = "127.0.0.1"
+    node_ip = "$env{NODE_IP}"
     base_path = "https://$ref{server.hostname}:${carbon.management.port}"
     force_local_cache = true
 

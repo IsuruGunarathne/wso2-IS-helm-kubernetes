@@ -2,9 +2,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: endpoint-reader-binding
+  namespace: wso2is
 subjects:
   - kind: ServiceAccount
     name: is-service-account
+    namespace: wso2is
 roleRef:
   kind: Role
   name: endpoint-reader

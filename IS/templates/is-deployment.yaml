@@ -37,4 +37,5 @@ spec:
         - name: identity-server-conf
           configMap:
             name: identity-server-conf
-      serviceAccountName: is-service-account
+      serviceAccountName: is-service-account.
+      

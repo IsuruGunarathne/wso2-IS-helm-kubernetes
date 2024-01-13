@@ -22,6 +22,7 @@ spec:
           ports:
             - containerPort: 9443
             - containerPort: 4000
+            - containerPort: 9763
             - containerPort: 3306
             - containerPort: 433
           env:

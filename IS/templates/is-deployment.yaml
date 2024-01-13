@@ -2,17 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.depName }}
+  namespace: wso2is
   labels:
-    app: {{ .Values.appName }}
+    deployment: wso2is # Labels for the deployment itself
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: {{ .Values.appName }}
+      deployment: wso2is  # Selector labels to match labels in the pod template
   template:
     metadata:
       labels:
-        app: {{ .Values.appName }}
+        deployment: wso2is  # Labels applied to pods created by this template
     spec:
       containers:
         - name: {{ .Values.appName }}

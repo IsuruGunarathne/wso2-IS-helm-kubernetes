@@ -16,6 +16,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: identity-server-conf
+  namespace: wso2is
 
 data:
   deployment.toml: |-

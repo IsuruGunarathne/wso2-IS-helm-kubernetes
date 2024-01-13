@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: mysql-dbscripts
+  namespace: wso2is
 data:
   init.sql: |-
     DROP DATABASE IF EXISTS WSO2IS_SHARED_DB;

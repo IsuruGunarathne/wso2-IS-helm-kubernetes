@@ -2,16 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: wso2is
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
+      deployment: mysql
+      pod: wso2is
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: mysql
+        deployment: mysql
+        pod: wso2is
     spec:
       containers:
         - image: mysql:latest

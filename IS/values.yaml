@@ -1,5 +1,6 @@
 depName: is-deployment
 serName: is-service
+ingName: is-ingress
 appName: is
 image:
   name: is6.1

@@ -24,7 +24,6 @@ spec:
             - containerPort: 4000
             - containerPort: 9763
             - containerPort: 3306
-            - containerPort: 433
           env:
             - name: NODE_IP
               valueFrom:

@@ -84,8 +84,11 @@ data:
     "hazelcast.shutdownhook.enabled" = "false"
     "hazelcast.logging.type"= "log4j2"
 
-
-
+    [transport.http.properties]
+    proxyPort = 80
+    [transport.https.properties]
+    proxyPort = 443
+    
     [keystore.primary]
     file_name = "wso2carbon.jks"
     password = "wso2carbon"

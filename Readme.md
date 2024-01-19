@@ -63,3 +63,20 @@ go into terminal in the container using `kubectl exec -it <pods name> -- /bin/ba
 ### remove mysql chart
 
 `helm delete mysql-release`
+
+## Ingress
+
+### enabling ingress and ingress-dns on minikube
+
+`minikube addons enable ingress`
+`minikube addons enable ingress-dns`
+
+### adding the host to /etc/hosts
+
+`echo "$(minikube ip) wso2is.com" | sudo tee -a /etc/hosts`
+
+### checking addons
+
+`minikube addons list`
+
+make sure that ingress and ingress-dns are enabled, go to the browser and type `https://wso2.is` to access the deployment

@@ -34,17 +34,8 @@ spec:
               mountPath: /home/wso2carbon/wso2is-7.0.0/repository/conf/deployment.toml
               subPath: deployment.toml
 
-{{ if .Values.isReadOnly }}
-            - name: reg-conf
-              mountPath: /home/wso2carbon/wso2is-7.0.0/repository/resources/conf/templates/repository/conf/registry.xml.j2
-              subPath: registry.xml.j2
-{{ - end }}
-
       volumes:
         - name: identity-server-conf
           configMap:
-            name: identity-server-conf
-        - name: reg-conf
-          configMap:  
             name: identity-server-conf
       serviceAccountName: is-service-account

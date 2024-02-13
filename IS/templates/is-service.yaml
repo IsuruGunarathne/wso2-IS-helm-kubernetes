@@ -15,6 +15,6 @@ spec:
     targetPort: 9763
     protocol: TCP
   - name: servlet-https
-    port: 9443
+    port: 443
     targetPort: 9443
     protocol: TCP

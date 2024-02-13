@@ -6,7 +6,7 @@ metadata:
   labels:
     deployment: wso2is
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     deployment: wso2is
   ports:  

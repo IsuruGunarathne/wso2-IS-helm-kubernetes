@@ -1,3 +1,4 @@
+isReadOnly: 1
 depName: is-deployment
 serName: is-service
 ingName: is-ingress

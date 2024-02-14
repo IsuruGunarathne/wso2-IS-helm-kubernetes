@@ -40,20 +40,20 @@ data:
     url = "jdbc:sqlserver://wso2is-db-secondary.database.windows.net:1433/ismssqldb-primary"
     username = "regadmin"
     password = "nimdager@123"
-    encrypt=true;
-    trustServerCertificate=false;
-    hostNameInCertificate=*.database.windows.net;
-    loginTimeout=30;
+    encrypt=true
+    trustServerCertificate=false
+    hostNameInCertificate=*.database.windows.net
+    loginTimeout=30
 
     [database.shared_db]
     type = "mssql"
     url = "jdbc:sqlserver://wso2is-db-secondary.database.windows.net:1433/ismssqldb-primary"
     username = "regadmin"
     password = "nimdager@123"
-    encrypt=true;
-    trustServerCertificate=false;
-    hostNameInCertificate=*.database.windows.net;
-    loginTimeout=30;
+    encrypt=true
+    trustServerCertificate=false
+    hostNameInCertificate=*.database.windows.net
+    loginTimeout=30
 
     [database.identity_db.pool_options]
     maxActive = "80"

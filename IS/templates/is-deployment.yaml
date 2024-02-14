@@ -6,7 +6,7 @@ metadata:
   labels:
     deployment: wso2is # Labels for the deployment itself
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       deployment: wso2is  # Selector labels to match labels in the pod template
